@@ -14,4 +14,25 @@ public class Area {
     private String areaId;
     Map<String, Room> Rooms = new HashMap<>();
     
+    public void setAreaName(String areaName){
+        this.areaName = areaName;
+    }
+    public void setAreaId(String areaId){
+        this.areaId = areaId;
+    }
+    public String getAreaName(){
+        return areaName;
+    }
+    public String getAreaId(){
+        return areaId;
+    }
+    
+    Area(String areaName, String areaId){
+        this.areaName = areaName;
+        this.areaId = areaId;
+    }
+    
+    public void addArea(Room newRoom){
+        Rooms.put(newRoom.getRoomId(), newRoom);
+    }
 }
