@@ -32,4 +32,8 @@ public class House {
         this.houseId = houseId;
     }
     
+    public void addArea(Area newArea){
+        Areas.put(newArea.getAreaId(), newArea);
+    }
+    
 }
