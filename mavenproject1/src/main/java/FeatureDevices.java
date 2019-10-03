@@ -14,8 +14,8 @@ public class FeatureDevices {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        AcLg aire = new AcLg("1","1","1","1","1","test1");
-        AcSamsung aire2 = new AcSamsung("2","2","2","2","2","test2");
+        AcLg aire = new AcLg("AC","1","1","1","1","1","test1", "Apagado");
+        AcSamsung aire2 = new AcSamsung("AC","2","2","2","2","2","test2", "Encendido");
         
         String decreaseTemp = aire.decreaseTemp();
         System.out.println(decreaseTemp);

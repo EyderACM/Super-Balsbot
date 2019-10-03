@@ -45,7 +45,7 @@ public class Area {
     
     public void printRooms() {
         for (String key : rooms.keySet()) {
-            System.out.println(key + " : " + rooms.get(key).getRoomName());
+            System.out.println("        Room Id: " + key + " Room Name: " + rooms.get(key).getRoomName());
             rooms.get(key).printDevices();
         }
     }
@@ -53,4 +53,37 @@ public class Area {
     public Room getRoom(String roomId){
         return rooms.get(roomId);
     }
+    
+    public int howManyTurnOn() {
+        int count = 0;
+        for (Room room : rooms.values()) {
+            count += room.howManyTurnOn();
+        }
+        return count;
+    }
+    
+    public int howManyAC() {
+        int count = 0;
+        for (Room room : rooms.values()) {
+            count += room.howManyAC();
+        }
+        return count;
+    }
+    
+    public int howManyTV() {
+        int count = 0;
+        for (Room room : rooms.values()) {
+            count += room.howManyTV();
+        }
+        return count;
+    }
+    
+    public int howManyLights() {
+        int count = 0;
+        for (Room room : rooms.values()) {
+            count += room.howManyLights();
+        }
+        return count;
+    }
+    
 }

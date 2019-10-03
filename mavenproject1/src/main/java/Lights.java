@@ -6,12 +6,12 @@
 
 /**
  *
- * @author edgar
+ * @author Rafael
  */
-public class AcSamsung extends Ac{
+public class Lights extends Device {
+    public String type = "Lights";
     
-    public AcSamsung(String type, String deviceName, String houseId, String areaId, String roomId, String deviceId, String model, String status) {
+    public Lights(String type, String deviceName, String houseId, String areaId, String roomId, String deviceId, String model, String status) {
         super(type, deviceName, houseId, areaId, roomId, deviceId, model, status);
     }
-    
 }

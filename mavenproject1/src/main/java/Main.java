@@ -8,20 +8,20 @@ import java.util.logging.Logger;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Eyder
  */
-public class Main{
-    public static void main(String[] args){
-        /**try {       
-            DeviceManager.main(null);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        //DeviceManager.main(null); 
-       FeatureHierarchy.main(null);
-        HouseConfig.main(null);
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        /**
+         * try { DeviceManager.main(null); } catch (IOException ex) {
+         * Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         */
+        DeviceManager.main(null); 
+        //FeatureHierarchy.main(null);
+        //HouseConfig.main(null);
     }
 }

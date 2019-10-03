@@ -50,12 +50,44 @@ public class House {
 
     public void printAreas() {
         for (String key : areas.keySet()) {
-            System.out.println(key + " : " + areas.get(key).getAreaName());
+            System.out.println("    Area Id: " + key + " Area Name: " + areas.get(key).getAreaName());
             areas.get(key).printRooms();
         }
     }
     
     public Area getArea(String areaId){
         return areas.get(areaId);
+    }
+    
+    public int howManyTurnOn() {
+        int count = 0;
+        for (Area area : areas.values()) {
+            count += area.howManyTurnOn();
+        }
+        return count;
+    }
+    
+    public int howManyAC() {
+        int count = 0;
+        for (Area area : areas.values()) {
+            count += area.howManyAC();
+        }
+        return count;
+    }
+    
+    public int howManyTV() {
+        int count = 0;
+        for (Area area : areas.values()) {
+            count += area.howManyTV();
+        }
+        return count;
+    }
+    
+    public int howManyLights() {
+        int count = 0;
+        for (Area area : areas.values()) {
+            count += area.howManyLights();
+        }
+        return count;
     }
 }
