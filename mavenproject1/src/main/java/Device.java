@@ -57,6 +57,9 @@ public class Device {
     public String getModel(){
         return model;
     }
+    public String getDeviceId(){
+        return deviceId;
+    }
     
     public String turnOn(){
         String action = "prender";

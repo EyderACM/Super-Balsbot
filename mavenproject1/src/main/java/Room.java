@@ -32,11 +32,11 @@ public class Room {
         return roomId;
     }
     
-    /**
     public void addDevice(Device newDevice){
         devices.put(newDevice.getDeviceId(), newDevice);
     }
     
+    /**
     public void removeDevice(String deviceId) {
         if(devices.containsKey(deviceId)) {
             devices.remove(deviceId);
@@ -46,5 +46,9 @@ public class Room {
     
     public void printDevices() {
         
+    }
+    
+    public Device getDevice(String deviceId) {
+        return devices.get(deviceId);
     }
 }
