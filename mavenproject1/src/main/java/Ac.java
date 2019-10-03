@@ -11,8 +11,8 @@
 public abstract class Ac extends Device {
     public int tempLevel = 16;
 
-    public Ac(String houseId, String areaId, String roomId, String deviceId, String model) {
-        super(houseId, areaId, roomId, deviceId, model);
+    public Ac(String deviceName, String houseId, String areaId, String roomId, String deviceId, String model) {
+        super(deviceName, houseId, areaId, roomId, deviceId, model);
     }
     
     public String increaseTemp(){

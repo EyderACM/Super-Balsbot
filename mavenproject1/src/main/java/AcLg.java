@@ -10,8 +10,8 @@
  */
 public class AcLg extends Ac {
  
-    public AcLg(String houseId, String areaId, String roomId, String deviceId, String model) {
-        super(houseId, areaId, roomId, deviceId, model);
+    public AcLg(String deviceName, String houseId, String areaId, String roomId, String deviceId, String model) {
+        super(deviceName, houseId, areaId, roomId, deviceId, model);
     }
  
 }
