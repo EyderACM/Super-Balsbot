@@ -9,13 +9,14 @@
  * @author edgar
  */
 public class Device {
+    public String deviceName;
     public String deviceId;
     public String areaId;
     public String houseId;
     public String roomId;
     public String model;
     
-    Device(String houseId, String areaId, String roomId,String deviceId, String model){
+    Device(String deviceName, String houseId, String areaId, String roomId,String deviceId, String model){
         this.houseId = houseId;
         this.areaId = areaId;
         this.roomId = roomId;

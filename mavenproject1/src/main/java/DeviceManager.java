@@ -8,8 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,14 +30,10 @@ public class DeviceManager {
             
     public static void main(String[] args) throws IOException{
         DeviceManager newDatabase = new DeviceManager();
-        newDatabase.addDevice();
-        newDatabase.removeDevice("APPLE123");
-        newDatabase.addDevice();
-        newDatabase.setDevice("APPLE123");
         
     }      
     
-    public void addDevice(){
+    public void addDevice(Device newDevice){
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(deviceDatabase, true));        
             String deviceId = "APPLE123";
@@ -46,7 +41,7 @@ public class DeviceManager {
             String houseId = "casa123";
             String areaId = "area123";
             String roomId = "room123";
-            pw.append(deviceId+","+deviceName+","+houseId+","+areaId+","+roomId);
+            pw.append(newDevice.deviceId+","+newDevice.deviceName+","+newDevice.houseId+","+newDevice.areaId+","+newDevice.roomId);
             pw.close();
         }catch(Exception e){
             
@@ -79,11 +74,7 @@ public class DeviceManager {
         }
     }
     
-    public void setDevice(String deviceId) throws FileNotFoundException, IOException{        
-        String deviceName = "Apple max max";
-        String houseId = "casa123";
-        String areaId = "area123";
-        String roomId = "room123";
+    public void setDevice(Device newDevice, String deviceId) throws FileNotFoundException, IOException{                
         File tempFile = new File("tempDeviceDatabase.txt");
         BufferedReader reader = new BufferedReader(new FileReader(deviceDatabase));        
         BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
@@ -96,7 +87,7 @@ public class DeviceManager {
             data=currentLine.split(",");
             for(int i = 0; i < 5; i++){                
                 if(data[i].equals(deviceId)){
-                    String newLine = deviceId+","+deviceName+","+houseId+","+areaId+","+roomId;
+                    String newLine = deviceId+","+newDevice.deviceName+","+newDevice.houseId+","+newDevice.areaId+","+newDevice.roomId;
                     writer.write(newLine + System.getProperty("line.separator"));
                     wasFound = true;
                 }
