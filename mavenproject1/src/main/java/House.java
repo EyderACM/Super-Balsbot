@@ -49,19 +49,13 @@ public class House {
     }
 
     public void printAreas() {
-        /**Areas.forEach((k, v) -> System.out.println("Key: " + k + ": Value: " + v.getAreaName()));
-        Iterator AreasIterator = Areas.entrySet().iterator();
-        while (AreasIterator.hasNext()) {
-            Map.Entry mapElement = (Map.Entry) RoomsIterator.next();
-            System.out.println("Room's Id: " + mapElement.getKey() + " Room's Name: " + (Room) mapElement.getValue().getRoomName());
-            mapElement.getValue().printDevices();
-        }*/
-
         for (String key : areas.keySet()) {
             System.out.println(key + " : " + areas.get(key).getAreaName());
             areas.get(key).printRooms();
         }
-
     }
-
+    
+    public Area getArea(String areaId){
+        return areas.get(areaId);
+    }
 }
