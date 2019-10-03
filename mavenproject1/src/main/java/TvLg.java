@@ -11,8 +11,8 @@
  
 public class TvLg extends Tv {
     
-    public TvLg(String houseId, String areaId, String roomId, String deviceId, String model) {
-        super(houseId, areaId, roomId, deviceId, model);
+    public TvLg(String deviceName, String houseId, String areaId, String roomId, String deviceId, String model) {
+        super(deviceName, houseId, areaId, roomId, deviceId, model);
     }
    
 }
