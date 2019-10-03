@@ -1,1 +1,6 @@
-APPLE123,Apple max max,casa123,area123,room123
+ventilador12,Ventilador,casa123,area123,cuarto123,12,TURNED_ON,AC
+ventilador12,Super ventilador,casa123,area1,cuarto45,123,TURNED_ON,AC
+ventilador12,Ventilador,casa123,area123,cuarto123,12,TURNED_ON,AC
+ventilador12,Super ventilador,casa123,area1,cuarto45,123,TURNED_ON,AC
+ventilador12,Ventilador,casa123,area123,cuarto123,12,TURNED_ON,AC
+ventilador12,Super ventilador,casa123,area1,cuarto45,123,TURNED_ON,TV

@@ -12,7 +12,7 @@ public abstract class Tv extends Device {
     public int volumeLevel = 0;
 
     public Tv(String deviceName, String houseId, String areaId, String roomId, String deviceId, String model) {
-        super(deviceName, houseId, areaId, roomId, deviceId, model);
+        super(deviceName, houseId, areaId, roomId, deviceId, model, "TV");
     }
     public String turnUpVolume(){
         String action = "subir volumen";

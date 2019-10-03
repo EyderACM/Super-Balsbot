@@ -1,0 +1,8 @@
+#House
+1;Casita;1a,2a,
+#Area
+1a;Level;1r,
+2a;OtherLevel;2r,
+#Rooms
+1r;newRoom;
+2r;secondRoom;

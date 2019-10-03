@@ -47,13 +47,6 @@ public class House {
             areas.remove(areaId);
         }
     }
-
-    public void printAreas() {
-        for (String key : areas.keySet()) {
-            System.out.println(key + " : " + areas.get(key).getAreaName());
-            areas.get(key).printRooms();
-        }
-    }
     
     public Area getArea(String areaId){
         return areas.get(areaId);

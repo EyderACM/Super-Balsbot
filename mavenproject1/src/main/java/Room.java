@@ -35,17 +35,18 @@ public class Room {
     public void addDevice(Device newDevice){
         devices.put(newDevice.getDeviceId(), newDevice);
     }
+   
     
-    /**
-    public void removeDevice(String deviceId) {
-        if(devices.containsKey(deviceId)) {
-            devices.remove(deviceId);
+    public void turnAllOn(){
+        for(Device device : devices.values()){
+            device.turnOn();
         }
     }
-    */
     
-    public void printDevices() {
-        
+    public void turnAllOff(){
+        for(Device device : devices.values()){
+            device.turnOff();
+        }
     }
     
     public Device getDevice(String deviceId) {

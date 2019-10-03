@@ -43,13 +43,6 @@ public class Area {
         }
     }
     
-    public void printRooms() {
-        for (String key : rooms.keySet()) {
-            System.out.println(key + " : " + rooms.get(key).getRoomName());
-            rooms.get(key).printDevices();
-        }
-    }
-    
     public Room getRoom(String roomId){
         return rooms.get(roomId);
     }
