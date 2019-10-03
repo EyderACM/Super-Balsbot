@@ -102,7 +102,25 @@ public class DeviceManager {
         tempFile.renameTo(deviceDatabase);
     }
     
-    public void getDevice(String deviceId){
-        
+    public Device getDevice(String deviceId) throws FileNotFoundException, IOException{
+        Device foundDevice = null;
+        try{
+            File tempFile = new File("tempDeviceDatabase.txt");
+            BufferedReader reader = new BufferedReader(new FileReader(deviceDatabase)); 
+            String currentLine;
+     
+            while((currentLine = reader.readLine()) !=  null){
+                String data[] = new String[5];
+                data = currentLine.split(",");
+                for(int i = 0; i < 5; i++){
+                    if(data[i].equals(deviceId)){
+                        foundDevice = new Device(deviceId, data[1], data[2], data[3], data[4]);                            
+                    }
+                }
+            }
+            return foundDevice;
+        }catch(Exception e){
+            }    
+        return foundDevice;
     }
 }
