@@ -11,6 +11,7 @@
 public class Main{
     public static void main(String[] args){
         //DeviceManager.main(null); 
-        FeatureHierarchy.main(null);
+        //FeatureHierarchy.main(null);
+        HouseConfig.main(null);
     }
 }
