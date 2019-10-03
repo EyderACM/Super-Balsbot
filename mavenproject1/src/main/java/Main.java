@@ -21,6 +21,7 @@ public class Main{
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         //DeviceManager.main(null); 
-        FeatureHierarchy.main(null);
+        //FeatureHierarchy.main(null);
+        HouseConfig.main(null);
     }
 }

@@ -12,7 +12,7 @@ import java.util.Map;
 public class Room {
     private String roomName;
     private String roomId;
-    //Map<String, Device> devices = new HashMap<>();
+    Map<String, Device> devices = new HashMap<>();
     
     Room(String roomName, String roomId){
         this.roomName = roomName;

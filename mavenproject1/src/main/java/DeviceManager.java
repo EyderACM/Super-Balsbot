@@ -36,11 +36,6 @@ public class DeviceManager {
     public void addDevice(Device newDevice){
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(deviceDatabase, true));        
-            String deviceId = "APPLE123";
-            String deviceName = "Apple Home";
-            String houseId = "casa123";
-            String areaId = "area123";
-            String roomId = "room123";
             pw.append(newDevice.deviceId+","+newDevice.deviceName+","+newDevice.houseId+","+newDevice.areaId+","+newDevice.roomId);
             pw.close();
         }catch(Exception e){
