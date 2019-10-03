@@ -15,6 +15,7 @@ public class Device {
     public String houseId;
     public String roomId;
     public String model;
+    public boolean status;
     
     Device(String deviceName, String houseId, String areaId, String roomId,String deviceId, String model){
         this.houseId = houseId;
@@ -26,10 +27,12 @@ public class Device {
     
     public String turnOn(){
         String action = "prender";
+        status = true;
         return action;
     }
     public String turnOff(){
         String action = "apagar";
+        status = false;
         return action;
     }
 }
