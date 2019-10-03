@@ -12,7 +12,12 @@ import java.util.Map;
 public class Room {
     private String roomName;
     private String roomId;
-    Map<String, Device> Devices = new HashMap<>();
+    //Map<String, Device> devices = new HashMap<>();
+    
+    Room(String roomName, String roomId){
+        this.roomName = roomName;
+        this.roomId = roomId;
+    }
     
     public void setRoomName(String roomName){
         this.roomName = roomName;
@@ -27,18 +32,19 @@ public class Room {
         return roomId;
     }
     
-    Room(String roomName, String roomId){
-        this.roomName = roomName;
-        this.roomId = roomId;
-    }
-    
+    /**
     public void addDevice(Device newDevice){
-        Devices.put(newDevice.getDeviceId(), newDevice);
+        devices.put(newDevice.getDeviceId(), newDevice);
     }
     
     public void removeDevice(String deviceId) {
-        if(Devices.containsKey(deviceId)) {
-            Devices.remove(deviceId);
+        if(devices.containsKey(deviceId)) {
+            devices.remove(deviceId);
         }
+    }
+    */
+    
+    public void printDevices() {
+        
     }
 }

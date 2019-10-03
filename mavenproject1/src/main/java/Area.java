@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 /**
@@ -12,7 +13,12 @@ import java.util.Map;
 public class Area {
     private String areaName;
     private String areaId;
-    Map<String, Room> Rooms = new HashMap<>();
+    public Map<String, Room> rooms = new HashMap<>();
+    
+    Area(String areaName, String areaId){
+        this.areaName = areaName;
+        this.areaId = areaId;
+    }
     
     public void setAreaName(String areaName){
         this.areaName = areaName;
@@ -27,18 +33,20 @@ public class Area {
         return areaId;
     }
     
-    Area(String areaName, String areaId){
-        this.areaName = areaName;
-        this.areaId = areaId;
-    }
-    
     public void addRoom(Room newRoom){
-        Rooms.put(newRoom.getRoomId(), newRoom);
+        rooms.put(newRoom.getRoomId(), newRoom);
     }
     
     public void removeRoom(String roomId) {
-        if(Rooms.containsKey(roomId)) {
-            Rooms.remove(roomId);
+        if(rooms.containsKey(roomId)) {
+            rooms.remove(roomId);
+        }
+    }
+    
+    public void printRooms() {
+        for (String key : rooms.keySet()) {
+            System.out.println(key + " : " + rooms.get(key).getRoomName());
+            rooms.get(key).printDevices();
         }
     }
 }
