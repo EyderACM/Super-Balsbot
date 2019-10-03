@@ -1,4 +1,5 @@
 
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -36,7 +37,7 @@ public class DeviceManager {
     public void addDevice(Device newDevice){
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(deviceDatabase, true));        
-            pw.append(newDevice.deviceId+","+newDevice.deviceName+","+newDevice.houseId+","+newDevice.areaId+","+newDevice.roomId);
+            pw.append(newDevice.getDeviceId()+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId());
             pw.close();
         }catch(Exception e){
             
@@ -82,7 +83,7 @@ public class DeviceManager {
             data=currentLine.split(",");
             for(int i = 0; i < 5; i++){                
                 if(data[i].equals(deviceId)){
-                    String newLine = deviceId+","+newDevice.deviceName+","+newDevice.houseId+","+newDevice.areaId+","+newDevice.roomId;
+                    String newLine = deviceId+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId();
                     writer.write(newLine + System.getProperty("line.separator"));
                     wasFound = true;
                 }
@@ -109,7 +110,7 @@ public class DeviceManager {
                 data = currentLine.split(",");
                 for(int i = 0; i < 5; i++){
                     if(data[i].equals(deviceId)){
-                        foundDevice = new Device(deviceId, data[1], data[2], data[3], data[4]);                            
+                        foundDevice = new Device(deviceId, data[0], data[1], data[2], data[3], data[4]);                            
                     }
                 }
             }

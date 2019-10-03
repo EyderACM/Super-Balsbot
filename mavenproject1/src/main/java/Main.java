@@ -15,13 +15,13 @@ import java.util.logging.Logger;
  */
 public class Main{
     public static void main(String[] args){
-        try {       
+        /**try {       
             DeviceManager.main(null);
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         //DeviceManager.main(null); 
-        //FeatureHierarchy.main(null);
+       FeatureHierarchy.main(null);
         HouseConfig.main(null);
     }
 }

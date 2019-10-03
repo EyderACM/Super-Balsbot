@@ -49,4 +49,8 @@ public class Area {
             rooms.get(key).printDevices();
         }
     }
+    
+    public Room getRoom(String roomId){
+        return rooms.get(roomId);
+    }
 }
