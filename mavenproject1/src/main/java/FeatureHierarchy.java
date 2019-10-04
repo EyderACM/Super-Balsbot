@@ -21,8 +21,8 @@ public class FeatureHierarchy {
         Room Recamara = new Room("Rafa's Bedroom", "0");
         Room Sanitario = new Room("Rafa's Bathroom", "1");
         Room Sanitario2 = new Room("Edgar's Bathroom", "0");
-        AcPanasonic Aire1 = new AcPanasonic("Aire feo", "0", "0", "0", "0", "Panasonic","Apagado");
-        AcSamsung Aire2 = new AcSamsung("Aire de lujo", "0", "0", "0", "1", "Samsung", "Encendido");
+        //AcPanasonic Aire1 = new AcPanasonic("Aire feo", "0", "0", "0", "0", "Panasonic","Apagado");
+        //AcSamsung Aire2 = new AcSamsung("Aire de lujo", "0", "0", "0", "1", "Samsung", "Encendido");
         
         //Casa.addArea(Cuarto);
         //Casa.getArea("0").addRoom(Recamara);
@@ -43,7 +43,7 @@ public class FeatureHierarchy {
         Casa.printAreas();
         
         System.out.println("Prueba 4:");
-        Casa.getArea("0").getRoom("0").addDevice(Aire1);
+        //Casa.getArea("0").getRoom("0").addDevice(Aire1);
         Casa.printAreas();
         
     }

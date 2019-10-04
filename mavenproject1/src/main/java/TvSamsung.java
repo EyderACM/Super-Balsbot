@@ -10,8 +10,8 @@
  */
 public class TvSamsung extends Tv {
     
-    public TvSamsung(String type, String deviceName, String houseId, String areaId, String roomId, String deviceId, String model) {
-        super(type, deviceName, houseId, areaId, roomId, deviceId, model);
+    public TvSamsung(String type, String deviceName, String houseId, String areaId, String roomId, String deviceId, String model, String status) {
+        super(type, deviceName, houseId, areaId, roomId, deviceId, model, status);
     }
     
 }

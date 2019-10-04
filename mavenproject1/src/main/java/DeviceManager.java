@@ -36,7 +36,7 @@ public class DeviceManager {
             String currentLine;
      
             while((currentLine = reader.readLine()) !=  null){
-                String data[] = new String[8];
+                String data[] = new String[9];
                 data = currentLine.split(",");
                    if(data[2].equals(houseId)){
                        System.out.println("Device Id: "+data[0]+ "Device Name: "+ data[1]+"House id: "+ data[2]+"Area Id: "+ data[3]+"Room Id: "+data[4]+"Model: "+ data[5]+ "Type: "+ data[6]);                           
@@ -45,20 +45,39 @@ public class DeviceManager {
         }catch(Exception e){
         }    
     }
+    public int numberOfTurnOnDevices(){
+        Device foundDevice = null;
+        int c = 0;
+        try{
+            File tempFile = new File("tempDeviceDatabase.txt");
+            BufferedReader reader = new BufferedReader(new FileReader(deviceDatabase)); 
+            String currentLine;
+            while((currentLine = reader.readLine()) !=  null){
+                String data[] = new String[9];
+                data = currentLine.split(",");
+                   if(data[7].equals("encendido")){
+                     c++;
+                   }
+            }
+        }catch(Exception e){
+        }
+        return c;
+    }
             
     public static void main(String[] args) throws IOException{
         DeviceManager newDatabase = new DeviceManager();
-        Device deviceTest = new Device("Ac", "aire perron", "casa1", "0", "0", "0", "samsung");
+        Device deviceTest = new Device("Ac", "aire perron", "casa1", "0", "0", "0", "samsung", "encendido");
         newDatabase.addDevice(deviceTest);
-        Device deviceTest2 = new Device("Tv", "tv perrona","casa1", "1", "1", "1", "Lg");
+        Device deviceTest2 = new Device("Tv", "tv perrona","casa1", "1", "1", "1", "Lg", "apagado");
         newDatabase.addDevice(deviceTest2);
         newDatabase.printAllHouseDevices("casa1");
+        System.out.println(newDatabase.numberOfTurnOnDevices());
     }      
     
     public void addDevice(Device newDevice){
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(deviceDatabase, true));        
-            pw.append(newDevice.getDeviceId()+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId()+","+newDevice.getModel()+","+newDevice.getType()+"\n");
+            pw.append(newDevice.getDeviceId()+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId()+","+newDevice.getModel()+","+newDevice.getType()+","+newDevice.getStatus()+"\n");
             pw.close();
         }catch(Exception e){
             
@@ -74,9 +93,9 @@ public class DeviceManager {
         
         while((currentLine = reader.readLine()) != null){
             Boolean wasFound = false;
-            String data[] = new String[5];
+            String data[] = new String[9];
             data=currentLine.split(",");
-            for(int i = 0; i < 5; i++){                
+            for(int i = 0; i < 9; i++){                
                 if(data[i].equals(deviceId)) wasFound = true;
             }
             if(!wasFound){
@@ -100,11 +119,11 @@ public class DeviceManager {
         boolean wasFound = false;
         
         while((currentLine = reader.readLine()) != null){
-            String data[] = new String[5];
+            String data[] = new String[9];
             data=currentLine.split(",");
-            for(int i = 0; i < 5; i++){                
+            for(int i = 0; i < 9; i++){                
                 if(data[i].equals(deviceId)){
-                    String newLine = deviceId+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId();
+                    String newLine = deviceId+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId()+","+newDevice.getModel()+","+newDevice.getType()+","+newDevice.getStatus();
                     writer.write(newLine + System.getProperty("line.separator"));
                     wasFound = true;
                 }
@@ -127,11 +146,11 @@ public class DeviceManager {
             String currentLine;
      
             while((currentLine = reader.readLine()) !=  null){
-                String data[] = new String[8];
+                String data[] = new String[9];
                 data = currentLine.split(",");
-                for(int i = 0; i < 8; i++){
+                for(int i = 0; i < 9; i++){
                     if(data[i].equals(deviceId)){
-                        foundDevice = new Device(deviceId, data[1], data[2], data[3], data[4], data[5], data[6]);                            
+                        foundDevice = new Device(deviceId, data[1], data[2], data[3], data[4], data[5], data[6], data[7]);                            
                     }
                 }
             }

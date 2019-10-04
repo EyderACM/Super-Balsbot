@@ -16,8 +16,9 @@ public class Device {
     private String roomId;
     private String model;
     private String type;
+    private String status;
     
-    Device(String type, String deviceName, String houseId, String areaId, String roomId,String deviceId, String model){
+    Device(String type, String deviceName, String houseId, String areaId, String roomId,String deviceId, String model, String status){
         this.type = type;
         this.deviceName = deviceName;
         this.houseId = houseId;
@@ -25,6 +26,7 @@ public class Device {
         this.roomId = roomId;
         this.deviceId = deviceId;
         this.model = model;
+        this.status = status;
     }
     public void setDeviceName(String deviceName){
         this.deviceName = deviceName;
@@ -47,6 +49,9 @@ public class Device {
     public void setType(String type) {
         this.type = type;
     }
+    public void setStatus(String status) {
+        this.status = status;
+    }
     
     public String getDeviceName(){
         return deviceName;
@@ -68,6 +73,9 @@ public class Device {
     }
     public String getType(){
         return type;
+    }
+    public String getStatus() {
+        return status;
     }
     
     public String turnOn(){
