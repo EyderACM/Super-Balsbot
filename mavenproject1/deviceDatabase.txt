@@ -1,2 +1,4 @@
 0,aire perron,casa1,0,0,samsung,Ac,encendido
 1,tv perrona,casa1,1,1,Lg,Tv,apagado
+0,aire perron,casa1,0,0,samsung,Ac,encendido
+1,tv perrona,casa1,1,1,Lg,Tv,apagado

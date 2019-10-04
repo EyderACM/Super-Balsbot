@@ -63,6 +63,24 @@ public class DeviceManager {
         }
         return c;
     }
+    public int deviceTypeAmount(String type){
+        Device foundDevice = null;
+        int c = 0;
+        try{
+            File tempFile = new File("tempDeviceDatabase.txt");
+            BufferedReader reader = new BufferedReader(new FileReader(deviceDatabase)); 
+            String currentLine;
+            while((currentLine = reader.readLine()) !=  null){
+                String data[] = new String[9];
+                data = currentLine.split(",");
+                   if(data[6].equals(type)){
+                     c++;
+                   }
+            }
+        }catch(Exception e){
+        }
+        return c;
+    }
             
     public static void main(String[] args) throws IOException{
         DeviceManager newDatabase = new DeviceManager();
@@ -72,6 +90,7 @@ public class DeviceManager {
         newDatabase.addDevice(deviceTest2);
         newDatabase.printAllHouseDevices("casa1");
         System.out.println(newDatabase.numberOfTurnOnDevices());
+        System.out.println(newDatabase.deviceTypeAmount("Ac"));
     }      
     
     public void addDevice(Device newDevice){
