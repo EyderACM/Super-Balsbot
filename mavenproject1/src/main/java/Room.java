@@ -51,4 +51,18 @@ public class Room {
     public Device getDevice(String deviceId) {
         return devices.get(deviceId);
     }
+    
+    public void turnOnDevices(){
+        for (String key : devices.keySet()) {
+            System.out.println(key + ":" + devices.get(key).getDeviceName());
+            devices.get(key).turnOn();
+        }
+    }
+    
+    public void turnOffDevices() {
+        for (String key : devices.keySet()) {
+            System.out.println(key + ":" + devices.get(key).getDeviceName());
+            devices.get(key).turnOff();
+        }
+    }
 }
