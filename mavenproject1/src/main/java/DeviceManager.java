@@ -32,20 +32,43 @@ public class DeviceManager {
             
     public static void main(String[] args) throws IOException{
         DeviceManager newDatabase = new DeviceManager();
-        String text, label;
+        String text;
+        File temp = new File("deviceDatabase_temp.txt");
+        File db = new File ("deviceDatabase.txt");
+        temp.createNewFile();
         BufferedReader br = new BufferedReader(new FileReader("deviceDatabase.txt"));
-
+        BufferedWriter bw = new BufferedWriter(new FileWriter("deviceDatabase_temp.txt", true));
+        String roomID = "room123";
+        boolean stat = true;
         int separator;
-        
+        String temp_text;
         while ((text = br.readLine()) != null){
-            separator = text.indexOf(',');
-            label = "off";
-            if (text.contains("true")){
-                label = "on";
+            temp_text = text;
+            for (int i = 0; i < 4; i++) {
+                separator = temp_text.indexOf(',');
+                temp_text = temp_text.substring(separator + 1);
             }
-            System.out.println("device with ID " + text.substring(0, separator) + ", is turned " + label);
-            text = text.substring(separator + 1);
+            separator = temp_text.indexOf(',');
+            temp_text = temp_text.substring(0, separator);
+            if (temp_text == null ? roomID != null : !temp_text.equals(roomID)){
+                bw.write(text);
+                bw.flush();
+                bw.newLine();
+            }else{
+                temp_text = text;
+                for (int i = 0; i < 5; i++) {
+                    separator = temp_text.indexOf(',');
+                    bw.write(temp_text.substring(0,separator) + ",");
+                    temp_text = temp_text.substring(separator + 1);               
+                }
+                bw.write(Boolean.toString(stat)+",");
+                bw.flush();
+                bw.newLine();
+            }
+            
         }
+        db.delete();
+        temp.renameTo(db);
     }      
     
     public void addDevice(Device newDevice){
