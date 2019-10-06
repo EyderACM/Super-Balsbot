@@ -23,10 +23,10 @@ public class FeatureDevices {
         String increaseTemp = aire.increaseTemp();
         System.out.println(increaseTemp);
         
-        String turnOn = aire.turnOn();
+        String turnOn = Boolean.toString(aire.getStatus());
         System.out.println(turnOn);
         
-        String turnOff = aire.turnOff();
+        String turnOff = Boolean.toString(aire.getStatus());
         System.out.println(turnOff);
         
         String decreaseTemp2 = aire2.decreaseTemp();
@@ -35,10 +35,10 @@ public class FeatureDevices {
         String increaseTemp2 = aire2.increaseTemp();
         System.out.println(increaseTemp);
         
-        String turnOn2 = aire2.turnOn();
+        String turnOn2 = Boolean.toString(aire2.getStatus());
         System.out.println(turnOn);
         
-        String turnOff2 = aire2.turnOff();
+        String turnOff2 = Boolean.toString(aire2.getStatus());
         System.out.println(turnOff);
     }
     

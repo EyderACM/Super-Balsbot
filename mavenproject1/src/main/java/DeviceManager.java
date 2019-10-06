@@ -34,40 +34,24 @@ public class DeviceManager {
         DeviceManager newDatabase = new DeviceManager();
         String text, label;
         BufferedReader br = new BufferedReader(new FileReader("deviceDatabase.txt"));
-        int count;
+
         int separator;
-        label = "deviceID: ";
+        
         while ((text = br.readLine()) != null){
-            count = 0;
-            while(text.length() > 0){
-                if (count == 1){
-                    label = "deviceName: ";
-                }else{
-                    if (count == 2){
-                        label = "houseID: ";
-                    }else{
-                        if (count == 3){
-                            label = "areaID: ";
-                            
-                        }else{
-                            if(count == 4){
-                                label = "roomID: ";
-                            }
-                        }
-                    }
-                }
-                separator = text.indexOf(',');
-                System.out.println(label + text.substring(0, separator));
-                text = text.substring(separator + 1);
-                count++;
+            separator = text.indexOf(',');
+            label = "off";
+            if (text.contains("true")){
+                label = "on";
             }
+            System.out.println("device with ID " + text.substring(0, separator) + ", is turned " + label);
+            text = text.substring(separator + 1);
         }
     }      
     
     public void addDevice(Device newDevice){
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(deviceDatabase, true));        
-            pw.append(newDevice.getDeviceId()+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId()+",");
+            pw.append(newDevice.getDeviceId()+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId()+","+ Boolean.toString(newDevice.getStatus())+",");
             pw.close();
         }catch(Exception e){
             

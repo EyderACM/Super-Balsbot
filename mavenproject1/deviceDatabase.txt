@@ -1,1 +1,4 @@
-APPLE123,Apple max max,casa123,area123,room123,
+APPLE123,Apple max max,casa123,area123,room123,false,
+1337,true,
+45,true,
+123ffa3,false,
