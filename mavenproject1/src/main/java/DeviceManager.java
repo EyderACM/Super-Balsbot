@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 
 /*
@@ -31,13 +32,42 @@ public class DeviceManager {
             
     public static void main(String[] args) throws IOException{
         DeviceManager newDatabase = new DeviceManager();
-        
+        String text, label;
+        BufferedReader br = new BufferedReader(new FileReader("deviceDatabase.txt"));
+        int count;
+        int separator;
+        label = "deviceID: ";
+        while ((text = br.readLine()) != null){
+            count = 0;
+            while(text.length() > 0){
+                if (count == 1){
+                    label = "deviceName: ";
+                }else{
+                    if (count == 2){
+                        label = "houseID: ";
+                    }else{
+                        if (count == 3){
+                            label = "areaID: ";
+                            
+                        }else{
+                            if(count == 4){
+                                label = "roomID: ";
+                            }
+                        }
+                    }
+                }
+                separator = text.indexOf(',');
+                System.out.println(label + text.substring(0, separator));
+                text = text.substring(separator + 1);
+                count++;
+            }
+        }
     }      
     
     public void addDevice(Device newDevice){
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(deviceDatabase, true));        
-            pw.append(newDevice.getDeviceId()+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId());
+            pw.append(newDevice.getDeviceId()+","+newDevice.getDeviceName()+","+newDevice.getHouseId()+","+newDevice.getAreaId()+","+newDevice.getRoomId()+",");
             pw.close();
         }catch(Exception e){
             

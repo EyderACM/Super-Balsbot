@@ -14,15 +14,15 @@ import java.util.logging.Logger;
  * @author Eyder
  */
 public class Main{
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         /**try {       
             DeviceManager.main(null);
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }*/
-        //DeviceManager.main(null); 
-       FeatureHierarchy.main(null);
-       HouseConfig.main(null);
-       HouseCRUD.main(null);
+       DeviceManager.main(null); 
+       //FeatureHierarchy.main(null);
+       //HouseConfig.main(null);
+       //HouseCRUD.main(null);
     }
 }
