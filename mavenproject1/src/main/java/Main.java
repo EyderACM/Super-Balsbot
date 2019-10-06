@@ -22,6 +22,7 @@ public class Main{
         }*/
         //DeviceManager.main(null); 
        FeatureHierarchy.main(null);
-        HouseConfig.main(null);
+       HouseConfig.main(null);
+       HouseCRUD.main(null);
     }
 }
