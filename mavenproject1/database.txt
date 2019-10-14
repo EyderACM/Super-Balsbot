@@ -1,0 +1,8 @@
+#
+1/Casita|1a,2a,
+#
+1a/Level|1r,
+2a/OtherLevel|2r,
+#
+1r/newRoom|
+2r/secondRoom|

@@ -1,4 +1,0 @@
-123,Kill,casa123,area123,room123,true,
-456,Me,casa123,area123,room123,true,
-784,Me,casa123,area123,ram45,true,
-342,Lord,casa123,area123,room123,true,

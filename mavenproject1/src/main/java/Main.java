@@ -20,9 +20,9 @@ public class Main{
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }*/
-       DeviceManager.main(null); 
+       //DeviceManager.main(null); 
        //FeatureHierarchy.main(null);
        //HouseConfig.main(null);
-       //HouseCRUD.main(null);
+       HouseCRUD.main(null);
     }
 }

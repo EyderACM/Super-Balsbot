@@ -13,7 +13,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class HouseConfig {
+    private static BufferedWriter bw;
+    private static BufferedReader br;
     HouseConfig(House house){
+        try {
+            bw = new BufferedWriter( new FileWriter("database.txt",true) );
+            br = new BufferedReader(new FileReader("database.txt"));
+        } catch (IOException ex) {
+            Logger.getLogger(HouseConfig.class.getName()).log(Level.SEVERE, null, ex);
+        }
         createFile();
         try {
             initializeDB(house);
@@ -23,27 +31,13 @@ public class HouseConfig {
     }
     private void createFile(){
         try {
-            File database_house = new File("database_house.txt");
-            File database_area = new File("database_area.txt");
-            File database_room = new File("database_room.txt");
-            
-            if (database_house.createNewFile())
+            File database = new File("database.txt");
+
+            if (database.createNewFile())
             {
-                System.out.println("House DB is created!");
+                System.out.println("DB is created!");
             } else {
-                System.out.println("House DB already exists.");
-            }
-            if (database_area.createNewFile())
-            {
-                System.out.println("Area DB is created!");
-            } else {
-                System.out.println("Area DB already exists.");
-            }
-            if (database_room.createNewFile())
-            {
-                System.out.println("Room DB is created!");
-            } else {
-                System.out.println("Room DB already exists.");
+                System.out.println("DB already exists.");
             }
             
         } catch (IOException ex) {
@@ -51,60 +45,47 @@ public class HouseConfig {
         }
     }
     private void initializeHouse(House house) throws IOException{
-        BufferedWriter bw = new BufferedWriter( new FileWriter("database_house.txt",true) );
-        BufferedReader br = new BufferedReader(new FileReader("database_house.txt"));
         //Sets the House Table
+        bw.write("#\n");
         if (br.readLine() == null){
-            bw.write(house.getHouseId()+";"+house.getHouseName()+":");
+            bw.write(house.getHouseId()+"/"+house.getHouseName()+"|");
             for (String area : house.areas.keySet())
                 bw.write(area + ",");
-            bw.flush();
             bw.newLine();
             
         }
-        bw.close();
-        br.close();
     }
     private void initializeArea(House house) throws IOException{
-        BufferedWriter bw = new BufferedWriter( new FileWriter("database_area.txt",true) );
-        BufferedReader br = new BufferedReader(new FileReader("database_area.txt"));
         //Sets the Area Table
+        bw.write("#\n");
         if (br.readLine() == null){
             for (Map.Entry<String,Area> entry : house.areas.entrySet()){
-                bw.write(entry.getKey() + ";" + entry.getValue().getAreaName() + ":");
+                bw.write(entry.getKey() + "/" + entry.getValue().getAreaName() + "|");
                 for (String room : entry.getValue().rooms.keySet()) 
                     bw.write(room + ",");
-                bw.flush();
                 bw.newLine();
             }   
         }
-        br.close();
-        bw.close();
     }
     private void initializeRoom(House house) throws IOException{
         //Sets the Rooms Table
-        BufferedWriter bw = new BufferedWriter( new FileWriter("database_room.txt",true) );
-        BufferedReader br = new BufferedReader(new FileReader("database_room.txt"));
+        bw.write("#\n");
         if (br.readLine() == null){
             for (Map.Entry<String,Area> area_ : house.areas.entrySet()){
                 for (Map.Entry<String,Room> room_ : area_.getValue().rooms.entrySet()){
-                    bw.write(room_.getKey() + ";" + room_.getValue().getRoomName() + ":");
+                    bw.write(room_.getKey() + "/" + room_.getValue().getRoomName() + "|");
                     for (String device : room_.getValue().devices.keySet())
                         bw.write(device + ",");
-                    bw.flush();
                     bw.newLine();
                 }   
             }
         }
-        br.close();
-        bw.close();
+        
     }
     private void initializeDB(House house) throws IOException {
-
         initializeHouse(house);
         initializeArea(house);
-        initializeRoom(house);
-        	
+        initializeRoom(house);	
     }
     public static void main(String[] args) {
         House firstHouse = new House("Casita", "1");
@@ -117,5 +98,11 @@ public class HouseConfig {
         firstHouse.addArea(firstArea);
         firstHouse.addArea(secondArea);
         HouseConfig firstDB = new HouseConfig(firstHouse);
+        try {
+            br.close();
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(HouseConfig.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

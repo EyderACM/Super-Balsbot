@@ -17,7 +17,7 @@ public class House {
     private String houseId;
     Map<String, Area> areas = new HashMap<>();
 
-    House(String houseName, String houseId) {
+    House(String houseId, String houseName) {
         this.houseName = houseName;
         this.houseId = houseId;
     }
